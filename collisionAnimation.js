@@ -29,7 +29,6 @@ export class CollisionAnimation{
             this.frameTimer = 0
         } else {
             this.frameTimer += deltaTime
-            console.log(this.frameTimer)
         }
 
         if(this.frameX > this.maxFrame) this.markedForDeletion = true
