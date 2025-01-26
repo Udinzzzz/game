@@ -25,6 +25,8 @@ window.addEventListener('load', function(){
             this.enemies = []
             this.particles = []
             this.collisions = []
+            this.floatingMessages = []
+            this.lives = 5
             this.maxParticles = 50
             this.enemyTimer = 0
             this.enemyInterval = 1000
@@ -42,7 +44,6 @@ window.addEventListener('load', function(){
         update(deltaTime){
             this.time = this.time || 0
             this.time += deltaTime
-            console.log(this.time)
             if(this.time > this.maxTime) this.gameOver = true
             if(this.time > this.maxTime + deltaTime) this.gameStoped = true
             this.backround.update()
@@ -63,6 +64,11 @@ window.addEventListener('load', function(){
                 particle.update()
                 if(particle.markedForDeletion) this.particles.splice(this.enemies.indexOf(particle, 1))
             })
+
+            this.floatingMessages.forEach(message => {
+                message.update()
+            })
+
             if(this.particles.length > this.maxParticles){
                 this.particles.length = this.maxParticles
 
@@ -72,6 +78,8 @@ window.addEventListener('load', function(){
                 collision.update(deltaTime)
                 if(collision.markedForDeletion) this.collisions.splice(index, 1)
             })
+
+            this.floatingMessages = this.floatingMessages.filter(message => !message.markedForDeletion)
 
         }
         
@@ -86,6 +94,9 @@ window.addEventListener('load', function(){
             })
             this.collisions.forEach(collision => {
                 collision.draw(context)
+            })
+            this.floatingMessages.forEach(message => {
+                message.draw(context)
             })
             this.UI.draw(context)
         }
