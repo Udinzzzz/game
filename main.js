@@ -1,18 +1,18 @@
-import {Player} from "./player.js"
+import { Player } from "./player.js"
 import { InputHandler } from "./input.js"
 import { Backround } from "./backround.js"
 import { FlyingEnemy, GroundEnemy, ClimbingEnemy } from "./enemies.js"
 import { UI } from "./UI.js"
 
-window.addEventListener('load', function(){
+window.addEventListener('load', function () {
     const canvas = document.getElementById('canvas1')
     const ctx = canvas.getContext('2d')
 
     canvas.width = 500
     canvas.height = 500
 
-    class Game{
-        constructor(width,height){
+    class Game {
+        constructor(width, height) {
             this.width = width
             this.height = height
             this.speed = 0
@@ -36,56 +36,54 @@ window.addEventListener('load', function(){
             this.time = 0
             this.maxTime = 10000
             this.gameOver = false
-            this.gameStoped = false
             this.player.currentStates = this.player.states[0]
             this.player.currentStates.enter()
         }
 
-        update(deltaTime){
+        update(deltaTime) {
             this.time = this.time || 0
             this.time += deltaTime
-            if(this.time > this.maxTime) this.gameOver = true
-            if(this.time > this.maxTime + deltaTime) this.gameStoped = true
+            if (this.time > this.maxTime) this.gameOver = true
             this.backround.update()
             this.player.update(this.input.keys, deltaTime)
-            if(this.enemyTimer > this.enemyInterval){
+            if (this.enemyTimer > this.enemyInterval) {
                 this.addEnemy()
                 this.enemyTimer = 0
-            }else{
+            } else {
                 this.enemyTimer = this.enemyTimer || 0
                 this.enemyTimer += deltaTime
             }
             this.enemies.forEach(enemy => {
                 enemy.update(deltaTime)
-                if(enemy.markedFordeletion) this.enemies.splice(this.enemies.indexOf(enemy), 1)
+                if (enemy.markedFordeletion) this.enemies.splice(this.enemies.indexOf(enemy), 1)
             })
-            
-            this.particles.forEach((particle) =>{
+
+            this.particles.forEach((particle) => {
                 particle.update()
-                if(particle.markedForDeletion) this.particles.splice(this.enemies.indexOf(particle, 1))
+                if (particle.markedForDeletion) this.particles.splice(this.enemies.indexOf(particle, 1))
             })
 
             this.floatingMessages.forEach(message => {
                 message.update()
             })
 
-            if(this.particles.length > this.maxParticles){
+            if (this.particles.length > this.maxParticles) {
                 this.particles.length = this.maxParticles
 
-            } 
+            }
 
-            this.collisions.forEach((collision, index)=>{
+            this.collisions.forEach((collision, index) => {
                 collision.update(deltaTime)
-                if(collision.markedForDeletion) this.collisions.splice(index, 1)
+                if (collision.markedForDeletion) this.collisions.splice(index, 1)
             })
 
             this.floatingMessages = this.floatingMessages.filter(message => !message.markedForDeletion)
 
         }
-        
-        draw(context){
+
+        draw(context) {
             this.backround.draw(context)
-            this.player.draw(context) 
+            this.player.draw(context)
             this.enemies.forEach(enemy => {
                 enemy.draw(context)
             })
@@ -100,9 +98,9 @@ window.addEventListener('load', function(){
             })
             this.UI.draw(context)
         }
-        addEnemy(){
-            if(this.speed > 0 && Math.random() < 0.5) this.enemies.push(new GroundEnemy(this))
-            else if(this.speed > 0) this.enemies.push(new ClimbingEnemy(this))
+        addEnemy() {
+            if (this.speed > 0 && Math.random() < 0.5) this.enemies.push(new GroundEnemy(this))
+            else if (this.speed > 0) this.enemies.push(new ClimbingEnemy(this))
             this.enemies.push(new FlyingEnemy(this))
 
         }
@@ -111,13 +109,13 @@ window.addEventListener('load', function(){
     const game = new Game(canvas.width, canvas.height)
     let lastTime = 0
 
-    function animate(timeStamp){
+    function animate(timeStamp) {
         const deltaTime = timeStamp - lastTime
         lastTime = timeStamp
-        ctx.clearRect(0,0,canvas.width,canvas.height)
-        game.draw(ctx)
+        ctx.clearRect(0, 0, canvas.width, canvas.height)
         game.update(deltaTime)
-        if(!game.gameStoped) requestAnimationFrame(animate)
+        game.draw(ctx)
+        if (!game.gameOver) requestAnimationFrame(animate)
     }
 
     animate(0)
