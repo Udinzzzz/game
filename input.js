@@ -11,10 +11,10 @@ export class InputHandler {
                 && this.keys.indexOf(e.key) === -1) {
                 this.keys.push(e.key)
             }
-            else if (e.key === 's' && this.keys.indexOf(e.key) === -1) this.keys.push('ArrowDown')
-            else if (e.key === 'w' && this.keys.indexOf(e.key) === -1) this.keys.push('ArrowUp')
-            else if (e.key === 'd' && this.keys.indexOf(e.key) === -1) this.keys.push('ArrowRight')
-            else if (e.key === 'a' && this.keys.indexOf(e.key) === -1) this.keys.push('ArrowLeft')
+            else if (e.key === 's' && !this.keys.includes('ArrowDown')) this.keys.push('ArrowDown')
+            else if (e.key === 'w' && !this.keys.includes('ArrowUp')) this.keys.push('ArrowUp')
+            else if (e.key === 'd' && !this.keys.includes('ArrowRight')) this.keys.push('ArrowRight')
+            else if (e.key === 'a' && !this.keys.includes('ArrowLeft')) this.keys.push('ArrowLeft')
             else if (e.key === 'e') this.game.debug = !this.game.debug
 
             console.log(this.keys, "keyDown")
