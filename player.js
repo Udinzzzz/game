@@ -84,9 +84,12 @@ export class Player {
             ) {
                 enemy.markedFordeletion = true
                 this.game.collisions.push(new CollisionAnimation(this.game, enemy.x + enemy.width * 0.5, enemy.y + enemy.height * 0.5))
-                if (this.currentStates === this.states[4] || this.currentStates === this.states[5]) {
+                if (this.currentStates === this.states[4]) {
                     this.game.score++
                     this.game.floatingMessages.push(new FloatingMessage('+1', enemy.x, enemy.y, 150, 50))
+                } else if (this.currentStates === this.states[5]) {
+                    this.game.score += 5
+                    this.game.floatingMessages.push(new FloatingMessage('+5', enemy.x, enemy.y, 150, 50))
                 } else {
                     this.game.floatingMessages.push(new FloatingMessage('-1', enemy.x, enemy.y, 150, 50))
                     this.game.score -= 1

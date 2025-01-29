@@ -16,9 +16,9 @@ export class InputHandler {
             else if (e.key === 'd' && !this.keys.includes('ArrowRight')) this.keys.push('ArrowRight')
             else if (e.key === 'a' && !this.keys.includes('ArrowLeft')) this.keys.push('ArrowLeft')
             else if (e.key === 'e') this.game.debug = !this.game.debug
-            else if (e.key === 'q') this.game.gameStopped = !this.game.gameStopped
+            else if (e.key === 'p') this.game.gamePaused = !this.game.gamePaused
 
-            console.log(this.keys,this.game.gameStopped, "keyDown")
+            console.log(this.keys,this.game.gamePaused, "keyDown")
         })
 
         window.addEventListener('keyup', e => {

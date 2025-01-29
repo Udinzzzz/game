@@ -26,17 +26,17 @@ window.addEventListener('load', function () {
             this.particles = []
             this.collisions = []
             this.floatingMessages = []
-            this.lives = 3
+            this.lives = 20
             this.maxParticles = 50
             this.enemyTimer = 0
             this.enemyInterval = 1000
             this.debug = false
             this.score = 0
-            this.winningScore = localStorage.getItem('winningScore')
+            this.winningScore = localStorage.getItem('winningScore') || 10
             this.fontColor = 'black'
             this.time = 0
             this.gameOver = false
-            this.gameStopped = false
+            this.gamePaused = false
             this.player.currentStates = this.player.states[0]
             this.player.currentStates.enter()
         }
@@ -113,9 +113,11 @@ window.addEventListener('load', function () {
         const deltaTime = timeStamp - lastTime
         lastTime = timeStamp
         ctx.clearRect(0, 0, canvas.width, canvas.height)
-        game.update(deltaTime)
+        if(!game.gamePaused){
+            game.update(deltaTime)
+        }
         game.draw(ctx)
-        if (!game.gameOver && !game.gameStopped) {
+        if (!game.gameOver) {
             requestAnimationFrame(animate);
           }
     }
