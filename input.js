@@ -16,11 +16,16 @@ export class InputHandler {
             else if (e.key === 'd' && !this.keys.includes('ArrowRight')) this.keys.push('ArrowRight')
             else if (e.key === 'a' && !this.keys.includes('ArrowLeft')) this.keys.push('ArrowLeft')
             else if (e.key === 'e') this.game.debug = !this.game.debug
+            else if (e.key === 'q') this.game.gameStopped = !this.game.gameStopped
 
-            console.log(this.keys, "keyDown")
+            console.log(this.keys,this.game.gameStopped, "keyDown")
         })
 
         window.addEventListener('keyup', e => {
+            if (e.key === 's') this.keys.splice(e.key.indexOf('ArrowDown'), 1)
+            if (e.key === 'w') this.keys.splice(e.key.indexOf('ArrowUp'), 1)
+            if (e.key === 'd') this.keys.splice(e.key.indexOf('ArrowRight'), 1)
+            if (e.key === 'a') this.keys.splice(e.key.indexOf('ArrowLeft'), 1)
             if (e.key === 'ArrowDown' ||
                 e.key === 'ArrowUp' ||
                 e.key === 'ArrowRight' ||
@@ -29,10 +34,6 @@ export class InputHandler {
             ) {
                 this.keys.splice(e.key.indexOf(e.key), 1)
             }
-            if (e.key === 's') this.keys.splice(e.key.indexOf('ArrowDown'), 1)
-            if (e.key === 'w') this.keys.splice(e.key.indexOf('ArrowUp'), 1)
-            if (e.key === 'd') this.keys.splice(e.key.indexOf('ArrowRight'), 1)
-            if (e.key === 'a') this.keys.splice(e.key.indexOf('ArrowLeft'), 1)
 
             console.log(this.keys, "keyUP")
         })

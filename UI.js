@@ -28,13 +28,14 @@ export class UI{
             context.textAlign = 'center'
             context.font = this.fontSize * 2 + 'px ' + this.fontFamily
             if (this.game.score > this.game.winningScore) {
-                context.fillText('Boo-yah', this.game.width * 0.5, this.game.height * 0.5 - 20)
+                context.fillText('New Score!!', this.game.width * 0.5, this.game.height * 0.5 - 20)
                 context.font = this.fontSize * 0.7 + 'px ' + this.fontFamily
-                context.fillText('lorem ipsum dolor sir amet', this.game.width * 0.5, this.game.height * 0.5 + 20)
+                context.fillText('You are really cool', this.game.width * 0.5, this.game.height * 0.5 + 20)
+                localStorage.setItem('winningScore', this.game.score);
             } else {
                 context.fillText('Game Over', this.game.width * 0.5, this.game.height * 0.5 - 20)
                 context.font = this.fontSize * 0.7 + 'px ' + this.fontFamily
-                context.fillText('What are you doing??', this.game.width * 0.5, this.game.height * 0.5 + 20)
+                context.fillText("you're stupid", this.game.width * 0.5, this.game.height * 0.5 + 20)
                 
             }
 

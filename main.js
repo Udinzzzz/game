@@ -8,7 +8,7 @@ window.addEventListener('load', function () {
     const canvas = document.getElementById('canvas1')
     const ctx = canvas.getContext('2d')
 
-    canvas.width = 600
+    canvas.width = canvas.offsetWidth
     canvas.height = 500
 
     class Game {
@@ -26,17 +26,17 @@ window.addEventListener('load', function () {
             this.particles = []
             this.collisions = []
             this.floatingMessages = []
-            this.lives = 5
+            this.lives = 3
             this.maxParticles = 50
             this.enemyTimer = 0
             this.enemyInterval = 1000
             this.debug = false
             this.score = 0
-            this.winningScore = 40
+            this.winningScore = localStorage.getItem('winningScore')
             this.fontColor = 'black'
             this.time = 0
-            this.maxTime = 30000
             this.gameOver = false
+            this.gameStopped = false
             this.player.currentStates = this.player.states[0]
             this.player.currentStates.enter()
         }
@@ -44,7 +44,6 @@ window.addEventListener('load', function () {
         update(deltaTime) {
             this.time = this.time || 0
             this.time += deltaTime
-            if (this.time > this.maxTime) this.gameOver = true
             this.backround.update()
             this.player.update(this.input.keys, deltaTime)
             if (this.enemyTimer > this.enemyInterval) {
@@ -116,7 +115,9 @@ window.addEventListener('load', function () {
         ctx.clearRect(0, 0, canvas.width, canvas.height)
         game.update(deltaTime)
         game.draw(ctx)
-        if (!game.gameOver) requestAnimationFrame(animate)
+        if (!game.gameOver && !game.gameStopped) {
+            requestAnimationFrame(animate);
+          }
     }
 
     animate(0)
