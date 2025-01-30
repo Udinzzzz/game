@@ -4,16 +4,29 @@
     box-sizing: border-box;
 }
 
+.container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
 #canvas1{
     max-width: 1024;
     min-width: 375;
     width: 100vw;
     border: 1px solid black;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
     font-family: 'Creepster', cursive;
+}
+
+.controls {
+    padding: 50px 10px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.control-icon {
+    font-size: 50px;
 }
 
 img{

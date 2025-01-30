@@ -18,7 +18,7 @@ export class InputHandler {
             else if (e.key === 'e') this.game.debug = !this.game.debug
             else if (e.key === 'p') this.game.gamePaused = !this.game.gamePaused
 
-            console.log(this.keys,this.game.gamePaused, "keyDown")
+            console.log(this.keys, this.game.gamePaused, "keyDown")
         })
 
         window.addEventListener('keyup', e => {
@@ -36,6 +36,18 @@ export class InputHandler {
             }
 
             console.log(this.keys, "keyUP")
+        })
+
+        document.querySelectorAll('.control-icon').forEach(control => {
+            control.addEventListener('touchstart', e => {
+                if (this.keys.indexOf(e.target.id) === -1) {
+                    this.keys.push(e.target.id)
+                }
+            })
+
+            control.addEventListener('touchend', e => {
+                this.keys.splice(e.target.id.indexOf(e.target.id), 1)
+            })
         })
     }
 }
