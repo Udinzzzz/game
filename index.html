@@ -9,19 +9,32 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
     <div class="container">
         <canvas id="canvas1"></canvas>
-        <div class="controls">
-            <i class="fas fa-arrow-up control-icon" id="ArrowUp"></i>
-            <i class="fas fa-arrow-left control-icon" id="ArrowLeft"></i>
-            <i class="fas fa-arrow-right control-icon" id="ArrowRight"></i>
-            <i class="fas fa-arrow-down control-icon" id="ArrowDown"></i>
-            <i class="far fa-circle control-icon" id="Enter"></i>
+        <div class="controller" id="controllerID">
+            <div class="directional-buttons">
+                <div class="blank"></div>
+                <div class="button" id="ArrowUp">↑</div>
+                <div class="blank"></div>
+                <div class="button" id="ArrowLeft">←</div>
+                <div class="blank"></div>
+                <div class="button" id="ArrowRight">→</div>
+                <div class="blank"></div>
+                <div class="button" id="ArrowDown">↓</div>
+                <div class="blank"></div>
+            </div>
+            <div class="action-buttons">
+                <div class="button" id="Enter"><i class="fa-solid fa-hand-fist"></i></div>
+            </div>
         </div>
+    </div>
+    <div class="overlayButton">
+        <i class="fa-solid fa-gamepad" id="c"></i>
+        <i class="fa-solid fa-pause" id="p"></i>
     </div>
 
     <img src="assets/player.png" alt="" id="player">

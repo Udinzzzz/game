@@ -2,6 +2,7 @@ export class InputHandler {
     constructor(game) {
         this.keys = []
         this.game = game
+        this.controlerV = true
         window.addEventListener('keydown', e => {
             if ((e.key === 'ArrowDown' ||
                 e.key === 'ArrowUp' ||
@@ -17,8 +18,15 @@ export class InputHandler {
             else if (e.key === 'a' && !this.keys.includes('ArrowLeft')) this.keys.push('ArrowLeft')
             else if (e.key === 'e') this.game.debug = !this.game.debug
             else if (e.key === 'p') this.game.gamePaused = !this.game.gamePaused
+            else if (e.key === 'c') {
+                this.controlerV = !this.controlerV
+                if (!this.controlerV) {
+                    document.getElementById('controllerID').style.display = 'none'
+                } else {
+                    document.getElementById('controllerID').style.display = 'flex'
+                }
+            }
 
-            console.log(this.keys, this.game.gamePaused, "keyDown")
         })
 
         window.addEventListener('keyup', e => {
@@ -34,11 +42,9 @@ export class InputHandler {
             ) {
                 this.keys.splice(e.key.indexOf(e.key), 1)
             }
-
-            console.log(this.keys, "keyUP")
         })
 
-        document.querySelectorAll('.control-icon').forEach(control => {
+        document.querySelectorAll('.button').forEach(control => {
             control.addEventListener('touchstart', e => {
                 if (this.keys.indexOf(e.target.id) === -1) {
                     this.keys.push(e.target.id)
@@ -47,6 +53,19 @@ export class InputHandler {
 
             control.addEventListener('touchend', e => {
                 this.keys.splice(e.target.id.indexOf(e.target.id), 1)
+            })
+        })
+
+        document.querySelectorAll('.overlayButton').forEach( control => {
+            control.addEventListener('click', e =>{
+                if (e.target.id === 'c') {
+                    this.controlerV = !this.controlerV
+                    if (!this.controlerV) {
+                        document.getElementById('controllerID').style.display = 'none'
+                    } else {
+                        document.getElementById('controllerID').style.display = 'flex'
+                    }
+                }else if (e.target.id === 'p') this.game.gamePaused = !this.game.gamePaused
             })
         })
     }
