@@ -26,7 +26,7 @@ window.addEventListener('load', function () {
             this.particles = []
             this.collisions = []
             this.floatingMessages = []
-            this.lives = 20
+            this.lives = 5
             this.maxParticles = 50
             this.enemyTimer = 0
             this.enemyInterval = 1000
@@ -113,13 +113,11 @@ window.addEventListener('load', function () {
         const deltaTime = timeStamp - lastTime
         lastTime = timeStamp
         ctx.clearRect(0, 0, canvas.width, canvas.height)
-        if(!game.gamePaused){
+        if (!game.gamePaused && !game.gameOver) {
             game.update(deltaTime)
         }
         game.draw(ctx)
-        if (!game.gameOver) {
-            requestAnimationFrame(animate);
-          }
+        requestAnimationFrame(animate);
     }
 
     animate(0)

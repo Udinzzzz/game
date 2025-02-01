@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panduan Pengguna Dogged Defender: Nightfall</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #1a1a1a;
+            color: #f2f2f2;
+        }
+        h1, h2, h3 {
+            color: #ffcc00;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .form-section {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            height: auto;
+            border: 2px solid #ffcc00;
+            border-radius: 10px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            background-color: #ffcc00;
+            color: #1a1a1a;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Panduan Pengguna Dogged Defender: Nightfall</h1>
+
+    <div class="section">
+        <h2>Deskripsi Game</h2>
+        <p>Selamat datang di dunia Dogged Defender: Nightfall, sebuah game 2D yang tak ada habisnya! Di sini, pemain berperan sebagai anjing pemberani yang harus terus bergerak maju dan mengalahkan musuh-musuh menyeramkan seperti laba-laba, tanaman hidup (seperti zombie), dan serangga terbang. Tantangannya adalah bertahan selama mungkin sambil mengumpulkan skor tertinggi di latar perkotaan yang agak horor.</p>
+        <img src="/assets/help/OverView.png" alt="Deskripsi Game Image">
+    </div>
+
+    <div class="section">
+        <h2>Kontrol Permainan</h2>
+        <h3>Kontrol di Desktop:</h3>
+        <ul>
+            <li><strong>W</strong>: Loncat</li>
+            <li><strong>A</strong>: Mundur</li>
+            <li><strong>S</strong>: 
+                <ul>
+                    <li>Saat di tanah: Berhenti berlari/duduk</li>
+                    <li>Saat melompat (DIVING): Rolling dari atas ke bawah untuk menyerang musuh di bawah</li>
+                </ul>
+            </li>
+            <li><strong>D</strong>: Maju</li>
+            <li><strong>Enter</strong>: Serang</li>
+            <li><strong>P</strong>: Pause/Resume</li>
+            <li><strong>Space</strong>: Restart (jika kalah)</li>
+        </ul>
+        <img src="/assets/help/gameOver.png" alt="Kontrol Permainan Image">
+        <h3>Kontrol di Mobile/Touch:</h3>
+        <ul>
+            <li>UI menggunakan ikon panah untuk gerakan (mengganti WASD)</li>
+            <li>Ikon tangan mengepal menggantikan tombol Enter untuk menyerang</li>
+        </ul>
+        <img src="path/to/your/image3.jpg" alt="Mobile Control Image">
+    </div>
+
+    <div class="section">
+        <h2>Alur Permainan</h2>
+        <ul>
+            <li>Pemain memulai permainan dengan 5 nyawa.</li>
+            <li>Teruslah berjalan maju dan kalahkan musuh untuk mengumpulkan skor.</li>
+            <li>Menabrak musuh akan mengurangi 1 nyawa dan 1 skor.</li>
+            <li>Mengalahkan musuh menambah 1 skor.</li>
+            <li>Menyerang musuh dari atas menambah 5 skor.</li>
+        </ul>
+        <img src="/assets/help/diving.png" alt="Alur Permainan Image">
+    </div>
+
+    <div class="section">
+        <h2>Fitur Utama</h2>
+        <ul>
+            <li><strong>Platform:</strong> Dapat dimainkan di desktop dan mobile.</li>
+            <li><strong>Grafik:</strong> 2D yang keren</li>
+            <li><strong>Game Tak Berujung:</strong> Permainan berlanjut tanpa batas, sehingga pemain bisa terus meningkatkan skor mereka.</li>
+        </ul>
+        <img src="/assets/help/OverView.png" alt="Fitur Utama Image">
+    </div>
+
+    <div class="section form-section">
+        <h2>Laporan Bug</h2>
+        <p>Jika Anda menemukan bug atau masalah dalam game, silakan laporkan menggunakan formulir di bawah ini:</p>
+        <form action="your_server_endpoint" method="post">
+            <label for="name">Nama:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="bug">Deskripsi Bug:</label>
+            <textarea id="bug" name="bug" rows="4" required></textarea>
+            
+            <input type="submit" value="Kirim Laporan">
+        </form>
+    </div>
+</body>
+</html>

@@ -26,6 +26,9 @@ export class InputHandler {
                     document.getElementById('controllerID').style.display = 'flex'
                 }
             }
+            else if (e.key === ' ' && this.game.gameOver == true) {
+                this.#restart()
+            }
 
         })
 
@@ -47,6 +50,9 @@ export class InputHandler {
         document.querySelectorAll('.button').forEach(control => {
             control.addEventListener('touchstart', e => {
                 if (this.keys.indexOf(e.target.id) === -1) {
+                    if(this.game.gameOver){
+                        this.#restart()
+                    }
                     this.keys.push(e.target.id)
                 }
             })
@@ -56,8 +62,8 @@ export class InputHandler {
             })
         })
 
-        document.querySelectorAll('.overlayButton').forEach( control => {
-            control.addEventListener('click', e =>{
+        document.querySelectorAll('.overlayButton').forEach(control => {
+            control.addEventListener('click', e => {
                 if (e.target.id === 'c') {
                     this.controlerV = !this.controlerV
                     if (!this.controlerV) {
@@ -65,8 +71,18 @@ export class InputHandler {
                     } else {
                         document.getElementById('controllerID').style.display = 'flex'
                     }
-                }else if (e.target.id === 'p') this.game.gamePaused = !this.game.gamePaused
+                } else if (e.target.id === 'p') this.game.gamePaused = !this.game.gamePaused
             })
         })
+    }
+    #restart(){
+        this.game.enemies = []
+        this.game.particles = []
+        this.game.collisions = []
+        this.floatingMessages = []
+        this.game.time = 0
+        this.game.score = 0
+        this.game.lives = 5
+        this.game.gameOver = false
     }
 }

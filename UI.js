@@ -30,12 +30,12 @@ export class UI {
             if (this.game.score > this.game.winningScore) {
                 context.fillText('New Score!!', this.game.width * 0.5, this.game.height * 0.5 - 20)
                 context.font = this.fontSize * 0.7 + 'px ' + this.fontFamily
-                context.fillText('You are really cool', this.game.width * 0.5, this.game.height * 0.5 + 20)
+                context.fillText('Press Space or Attack Button to restart', this.game.width * 0.5, this.game.height * 0.5 + 20)
                 localStorage.setItem('winningScore', this.game.score);
             } else {
                 context.fillText('Game Over', this.game.width * 0.5, this.game.height * 0.5 - 20)
                 context.font = this.fontSize * 0.7 + 'px ' + this.fontFamily
-                context.fillText("you're stupid", this.game.width * 0.5, this.game.height * 0.5 + 20)
+                context.fillText("Press Space or Attack Button to restart", this.game.width * 0.5, this.game.height * 0.5 + 20)
 
             }
 
