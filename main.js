@@ -122,3 +122,6 @@ window.addEventListener('load', function () {
 
     animate(0)
 })
+
+alert('selamat datang di game anjing!, silahkan klik ikon berbentuk buku untuk tutorial')
+
