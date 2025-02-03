@@ -1,94 +1,118 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panduan Pengguna Dogged Defender: Nightfall</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Panduan Pengguna Game Anjing!</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 20px;
             background-color: #1a1a1a;
             color: #f2f2f2;
         }
-        h1, h2, h3 {
+
+        h1,
+        h2 {
+            text-align: center;
             color: #ffcc00;
         }
+
+        h3 {
+            color: #ffcc00;
+        }
+
         ul {
             list-style-type: none;
             padding: 0;
         }
+
         li {
             margin-bottom: 10px;
         }
+
         .section {
             margin-bottom: 20px;
         }
+
         .form-section {
             background-color: #333;
             padding: 20px;
             border-radius: 10px;
         }
+
         img {
             display: block;
-            margin: 0 auto;
             max-width: 100%;
             height: auto;
             border: 2px solid #ffcc00;
             border-radius: 10px;
+            margin: 10px auto;
         }
-        input, textarea {
+
+        input,
+        textarea {
             width: 100%;
             padding: 10px;
             margin-top: 10px;
             margin-bottom: 20px;
             border: none;
             border-radius: 5px;
+            box-sizing: border-box;
         }
+
         input[type="submit"] {
             background-color: #ffcc00;
             color: #1a1a1a;
             cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #e6b800;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #ffcc00;
         }
     </style>
 </head>
+
 <body>
-    <h1>Panduan Pengguna Dogged Defender: Nightfall</h1>
-
-    <div class="section">
-        <h2>Deskripsi Game</h2>
-        <p>Selamat datang di dunia Dogged Defender: Nightfall, sebuah game 2D yang tak ada habisnya! Di sini, pemain berperan sebagai anjing pemberani yang harus terus bergerak maju dan mengalahkan musuh-musuh menyeramkan seperti laba-laba, tanaman hidup (seperti zombie), dan serangga terbang. Tantangannya adalah bertahan selama mungkin sambil mengumpulkan skor tertinggi di latar perkotaan yang agak horor.</p>
-        <img src="/assets/help/OverView.png" alt="Deskripsi Game Image">
-    </div>
-
+    <h1>Panduan Pengguna Game Anjing!</h1>
     <div class="section">
         <h2>Kontrol Permainan</h2>
         <h3>Kontrol di Desktop:</h3>
         <ul>
             <li><strong>W</strong>: Loncat</li>
             <li><strong>A</strong>: Mundur</li>
-            <li><strong>S</strong>: 
-                <ul>
-                    <li>Saat di tanah: Berhenti berlari/duduk</li>
-                    <li>Saat melompat (DIVING): Rolling dari atas ke bawah untuk menyerang musuh di bawah</li>
-                </ul>
-            </li>
+            <li><strong>S</strong>: duduk / menyerang musuh dari atas</li>
             <li><strong>D</strong>: Maju</li>
             <li><strong>Enter</strong>: Serang</li>
             <li><strong>P</strong>: Pause/Resume</li>
             <li><strong>Space</strong>: Restart (jika kalah)</li>
         </ul>
-        <img src="/assets/help/gameOver.png" alt="Kontrol Permainan Image">
+        <img src="/assets/help/diving.png" alt="diving">
+        <p>Gambar menyerang musuh dari atas</p>
         <h3>Kontrol di Mobile/Touch:</h3>
         <ul>
+            <li>ikon <i class="fa-solid fa-gamepad" id="c"></i> : digunakan memunculkan virtual gamepad / touch control</li>
+            <li>ikon <i class="fa-solid fa-pause" id="c"></i> : digunakan untuk pause / resume</li>
+            <li>ikon <i class="fa-solid fa-book" id="c"></i> : digunakan untuk beralih ke halaman tutuorial</li>
             <li>UI menggunakan ikon panah untuk gerakan (mengganti WASD)</li>
             <li>Ikon tangan mengepal menggantikan tombol Enter untuk menyerang</li>
         </ul>
-        <img src="path/to/your/image3.jpg" alt="Mobile Control Image">
+        <img src="/assets/help/touchControl.png" alt="Mobile Control Image">
     </div>
 
     <div class="section">
-        <h2>Alur Permainan</h2>
+        <h2>Cara Bermain</h2>
         <ul>
             <li>Pemain memulai permainan dengan 5 nyawa.</li>
             <li>Teruslah berjalan maju dan kalahkan musuh untuk mengumpulkan skor.</li>
@@ -96,34 +120,40 @@
             <li>Mengalahkan musuh menambah 1 skor.</li>
             <li>Menyerang musuh dari atas menambah 5 skor.</li>
         </ul>
-        <img src="/assets/help/diving.png" alt="Alur Permainan Image">
-    </div>
-
-    <div class="section">
-        <h2>Fitur Utama</h2>
-        <ul>
-            <li><strong>Platform:</strong> Dapat dimainkan di desktop dan mobile.</li>
-            <li><strong>Grafik:</strong> 2D yang keren</li>
-            <li><strong>Game Tak Berujung:</strong> Permainan berlanjut tanpa batas, sehingga pemain bisa terus meningkatkan skor mereka.</li>
-        </ul>
-        <img src="/assets/help/OverView.png" alt="Fitur Utama Image">
+        <img src="/assets/help/diving.png" alt="diving">
+        <img src="/assets/help/rolling.png" alt="rolling">
     </div>
 
     <div class="section form-section">
         <h2>Laporan Bug</h2>
         <p>Jika Anda menemukan bug atau masalah dalam game, silakan laporkan menggunakan formulir di bawah ini:</p>
-        <form action="your_server_endpoint" method="post">
+        <form id="bugReportForm">
             <label for="name">Nama:</label>
             <input type="text" id="name" name="name" required>
-            
+
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
-            
+
             <label for="bug">Deskripsi Bug:</label>
             <textarea id="bug" name="bug" rows="4" required></textarea>
-            
+
             <input type="submit" value="Kirim Laporan">
         </form>
     </div>
 </body>
+<script>
+    document.getElementById('bugReportForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+        var name = document.getElementById('name').value;
+        var email = document.getElementById('email').value;
+        var bug = document.getElementById('bug').value;
+
+        var message = "Laporan Bug:\n\nNama: " + name + "\nEmail: " + email + "\nDeskripsi Bug: " + bug;
+        var phoneNumber = '6281999622231'; // Ganti dengan nomor WhatsApp Anda
+        var url = 'https://api.whatsapp.com/send?phone=' + phoneNumber + '&text=' + encodeURIComponent(message);
+
+        window.open(url, '_blank');
+    });
+</script>
+
 </html>
