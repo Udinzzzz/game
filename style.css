@@ -12,8 +12,11 @@
 
 }
 #canvas1{
-    max-width: 1024;
-    min-width: 375;
+    max-width: 1024px;
+    min-width: 500px;
+    max-height: 500px;
+    min-height: 400px;
+    height: 100vh;
     width: 100vw;
     border: 2px solid black;
     font-family: 'Creepster', cursive;
@@ -24,6 +27,8 @@ img{
 }
 
 .controller {
+    position: fixed;
+    bottom: 0;
     display: none;
     justify-content: space-between;
     width: 100vw;
@@ -46,7 +51,7 @@ img{
 .action-buttons #Enter{
     width: 80px;
     height: 100%;
-    background-color: #505050;
+    background-color: rgba(92, 92, 92, 0.9);
     color: white;
     font-size: 24px;
     display: flex;
@@ -60,7 +65,7 @@ img{
 .button {
     width: 70px;
     height: 70px;
-    background-color: #505050;
+    background-color: rgba(92, 92, 92, 0.9);
     color: white;
     font-size: 52px;
     display: flex;
@@ -86,39 +91,9 @@ img{
 .overlayButton i{
     font-size: 32px;
 }
-
-.containerPop {
-    position: relative;
+.container-message h1{
     text-align: center;
-    padding: 50px;
-}
-
-#popoverBtn {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.popover {
-    display: none;
-    position: absolute;
-    top: 50px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 200px;
-    padding: 20px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-}
-
-.popover p {
-    margin-bottom: 10px;
-}
-
-.popover-btn {
-    margin: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
+    position: relative;
+    top: 50vh;
+    transform: translate(-50%, -50);
 }

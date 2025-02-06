@@ -9,11 +9,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
-    <div class="container">
+    <div class="container" id="container">
         <canvas id="canvas1"></canvas>
         <div class="controller" id="controllerID">
             <div class="directional-buttons">
@@ -31,11 +33,15 @@
                 <div class="button" id="Enter"><i class="fa-solid fa-hand-fist"></i></div>
             </div>
         </div>
+        <div class="overlayButton">
+            <a href="help.html"><i class="fa-solid fa-book"></i></a>
+            <i class="fa-solid fa-expand" id="fullscreenButton"></i>
+            <i class="fa-solid fa-gamepad" id="c"></i>
+            <i class="fa-solid fa-pause" id="p"></i>
+        </div>
     </div>
-    <div class="overlayButton">
-        <a href="help.html"><i class="fa-solid fa-book"></i></a>
-        <i class="fa-solid fa-gamepad" id="c"></i>
-        <i class="fa-solid fa-pause" id="p"></i>
+    <div class="container-message">
+        <h1>please rotate your phone</h1>
     </div>
 
     <img src="assets/player.png" alt="" id="player">
@@ -51,6 +57,7 @@
     <img src="assets/boom.png" alt="" id="collisionAnimation">
     <img src="assets/heart.png" alt="" id="lives">
     <script type="module" src="main.js"></script>
+    <script src="util.js"></script>
 </body>
 
 </html>
